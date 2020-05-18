@@ -1,0 +1,59 @@
+{% extends 'base/container_page.html' %}
+{% block content %}
+
+<head>
+<title> List of Patients </title>
+</head>
+<body>
+   <h1>patients lists</h1>
+   <table>
+       <thead>
+            <th>
+            id
+           </th>
+           <th>
+            Medical history
+           </th>
+           <th>
+            Admission
+           </th>
+           <th>
+            Test_types
+            </th>
+            <th>
+            Notes
+            </th>
+            <th>
+            Prescription
+            </th>
+
+       </thead>
+       <tbody>
+       {% for consultation in consultations %}
+        <tr>
+            <td><a href="{% url 'consultations:detail' consultation.id %}"></a>{{consultation.id}}
+            </td>
+            <td>
+            {{ consultation.patient_id}}
+            </td>
+            <td>
+                {{ consultation.medical_history}}
+            </td>
+            <td>
+                {{ consultation.admission}}
+            </td>
+            <td>
+                {{ consultation.test_types}}
+            </td>
+            <td>
+                {{ consultation.notes}}
+            </td>
+            <td>
+                {{ consultation.prescription}}
+            </td>
+        
+        </tr>
+            {% endfor %}
+       </tbody>
+   </table>
+{% endblock %} 

@@ -1,0 +1,24 @@
+{% extends 'base/container_page.html' %}
+{% block content %}
+
+
+        <h2><b>Patient information<b></h2>
+<style>
+    .view_box {
+     text-align: center;   
+    }
+</style>
+
+    <div class="view-box">
+        
+        <p>Name : {{ patient.name }}</p>
+        <p>ID Number : {{ patient.id_number }}</p>
+        <p>Address : {{ patient.address }}</p>
+
+    <p><b>Consultation Information<b></p>
+    
+        <p>Consultation No: {{Consultation.admission}} </p>
+        <p>Consultation Type: {{Consultation.test_types}}</p>
+    </div>
+
+{% endblock %}

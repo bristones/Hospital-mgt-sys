@@ -1,0 +1,70 @@
+<!-- #creating a form to make payment -->
+{% extends 'base/container_page.html' %}
+{% block content %}
+    <style>
+        .view-box {
+          position: relative;
+          text-align: center;
+        }
+    </style>
+
+        <h2>Add payment history</h2>
+        <div class="view-box">
+            <form action="{% url 'customer:add_customer'%}" method="post" name="frmCustomer">
+                {%csrf_token %}
+
+                <label for="name">Name: </label>
+                <input id="name" type="text" name="name" values="">
+                <br>
+                <br>
+                <label for="mobile">Mobile: </label>
+                <input id="mobile" type="text" name="mobile" values="">
+                <br>
+                <br>
+                <label for="id_number">ID Number: </label>
+                <input id="id_number" type="text" name="id_number" values="">
+                <br>
+                <br>
+                <label for="balance">Balance: </label>
+                <input id="balance" type="number" name="balance" values="">
+                <br>
+                <br>
+                <label for="age">Age: </label>
+                <input id="age" type="text" name="age" values="">
+                <br>
+                <br>
+                <label for="pin">Pin: </label>
+                <input id="pin" type="text" name="pin" values="">
+                <!-- <label for="address">Address: </label>
+                <input id="address" type="number" name="address" values="">
+                <br>
+                <br> -->
+                <input type ="submit" value="save">
+
+            </form>
+        </div>
+
+    {% endblock %} 
+
+    // URL
+[POST] https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest
+
+// HEADERS
+Host: sandbox.safaricom.co.ke
+Authorization: Bearer [access token]
+Content-Type: application/json
+
+// BODY
+{
+    "BusinessShortCode": "174379",
+    "Password": "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTgwNDA5MDkzMDAy",
+    "Timestamp": "20180409093002",
+    "TransactionType": "[Transaction Type]",
+    "Amount": "1000",
+    "PartyA": "254708374149",
+    "PartyB": "174379",
+    "PhoneNumber": "254708374149",
+    "CallBackURL": "https://ip:port/"
+    "AccountReference": "account",
+    "TransactionDesc": "test" ,
+}

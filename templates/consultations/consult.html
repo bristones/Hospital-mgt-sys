@@ -1,0 +1,61 @@
+<!-- #creating a form to make a consultation -->
+{% extends 'base/container_page.html' %}
+{% block content %}
+    <style>
+        .view-box {
+            position: relative;
+            text-align: center;
+            border: 1px;
+        }
+    </style>
+
+            
+        <div class="view-box">
+        <h2>Make a consultation</h2>
+            <form action="{% url 'consultations:consult'%}" method="post" name="frmCustomer">
+                {%csrf_token %}
+
+                <label for="patient_id">Patient Name: </label>
+                <input id="{{pat_name.id}}" type="text" name="patient_id" values="">
+                <br>
+                <label for="medical_history">Medical_history: </label>
+                <input id="medical_history" type="text" name="medical_history" values="">
+                <br>
+                <label for="admission">Admission: </label>
+                <select id="admission" name="admission">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+                <br>
+                <label for="test_types">Test_types: </label>
+                <select id="test_types" name="test_types" multiple size="5">
+                  <option value="Labaratory">Labaratory</option>
+                  <option value="cardiovascular">cardiovascular</option>
+                  <option value="dermatology">dermatology</option>
+                  <option value="ENT">ENT</option>
+                  <option value="gastrointerstinal">gastrointerstinal</option>
+                  <option value="haematology">haematology</option>
+                  <option value="neurological">neurological</option>
+                  <option value="gynaelogical">gynaelogical</option>
+                  <option value="ocular">ocular</option>
+                  <option value="rheumatology">rheumatology</option>
+                  <option value="pulmonary">pulmonary</option>
+                  <option value="radiology">radiology</option>
+                  <option value="urology">urology</option>
+                  <option value="Others">Others</option>
+                
+              </select>
+                <br>
+                <label for="notes">Notes: </label>
+                <input id="notes type="text" name="notes" values="">
+                <br>
+                <label for="prescription">Prescription: </label>
+                <input id="prescription" type="text" name="prescription" values="">
+                <br>
+                <input type ="submit" value="save">
+
+            </form>
+        </div>
+
+
+{% endblock %} 

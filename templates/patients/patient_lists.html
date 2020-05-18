@@ -1,0 +1,62 @@
+{% extends 'base/container_page.html' %}
+{% block content %}
+
+<head>
+<title> List of Patients </title>
+</head>
+<body>
+   <h1>patients lists</h1>
+   <table>
+       <thead>
+            <th>
+            id
+           </th>
+           <th>
+            name
+           </th>
+           <th>
+               mobile
+           </th>
+           <th>
+            id_number
+            </th>
+            <th>
+                address
+            </th>
+            <th>
+                age
+            </th>
+            <th>
+                gender
+            </th>
+
+       </thead>
+       <tbody>
+       {% for patient in patients %}
+        <tr>
+            <td><a href="{% url 'patients:detail' patient.id %}"></a>{{patient.id}}
+            </td>
+            <td>
+            {{ patient.name}}
+            </td>
+            <td>
+                {{ patient.mobile}}
+            </td>
+            <td>
+                {{ patient.id_number}}
+            </td>
+            <td>
+                {{ patient.address}}
+            </td>
+            <td>
+                {{ patient.age}}
+            </td>
+            <td>
+                {{ patient.gender}}
+            </td>
+        
+        </tr>
+            {% endfor %}
+       </tbody>
+   </table>
+{% endblock %} 
